@@ -11,6 +11,20 @@ const url = require('url')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
+
+
+// openAtLogin issue
+setTimeout(() => {
+  console.log(app.getLoginItemSettings().openAtLogin);
+  app.setLoginItemSettings({ openAtLogin: true });
+  console.log(app.getLoginItemSettings().openAtLogin);
+  app.setLoginItemSettings({ openAtLogin: false });
+  console.log(app.getLoginItemSettings().openAtLogin);
+}, 1000);
+
+
+
+
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600})
